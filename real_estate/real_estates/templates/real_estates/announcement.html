@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:border="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "real_estates/base.html" %}
+
+{% block content %}
+
+<p>Ogłoszenia</p>
+
+
+<ul style="list-style: none">
+  {% for ann in announcement%}
+    <fieldset style="background-color: #EEEEEE"; border: 3px solid; padding: 5;">
+    <li><strong>{{ann.description}}</strong></li>
+    </fieldset>
+    <fieldset style="background-color: #EEEEEE"; border: 3px solid; padding: 5;">
+    <li>Link do ogłoszenia: <a href="{{ann.url}}">link do ogłoszenia</a></li>
+    <li><strong>Cena całkowita:</strong> {{ann.total_price}} <strong>Cena:</strong> {{ann.price}} <strong>Czynsz:</strong> {{ann.rent}} <strong>Depozyt:</strong> {{ann.deposit}}</li>
+    <li><strong>Powierzchnia:</strong>  {{ann.area}} <strong>Pokoje:</strong>  {{ann.rooms}} <strong>Piętro:</strong>  {{ann.floor}} <strong>Typ:</strong> {{ann.type}}</li>
+    <li><strong>Status:</strong> {{ann.status}} <strong>Region:</strong> {{ann.region}} </li>
+    </fieldset>
+
+  {% empty %}
+    <li>Brak ogłoszeń.</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
+
+</body>
+</html>

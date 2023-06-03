@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "real_estates/base.html" %}
+{% block content%}
+
+
+
+					<div class="scrollarea">
+						{% for ann in announcement%}
+						<div class="ml-5">
+
+							<article class="mt-4 mb-4 row">
+								<div class="col-5 mt-3">
+									<p style="font-size:13; font-weight: 400;"><strong>{{ann.description}} </strong>
+										</p>
+								</div>
+								<button type="button" class='row col-10' onclick="">
+
+
+									<div class="col-5 mt-3">
+
+
+										<p style="font-size:13; font-weight: 400;"><strong>Cena całkowita:</strong> {{ann.total_price}} <strong>Cena:</strong> {{ann.price}} <strong>Czynsz:</strong> {{ann.rent}} <strong>Depozyt:</strong> {{ann.deposit}}
+										</p>
+										<p style="font-size:13; font-weight: 400;"><strong>Powierzchnia:</strong>  {{ann.area}} <strong>Pokoje:</strong>  {{ann.rooms}} <strong>Piętro:</strong>  {{ann.floor}} <strong>Typ:</strong> {{ann.type}}
+										</p>
+										<p style="font-size:13; font-weight: 400;"><strong>Status:</strong> {{ann.status}} <strong>Region:</strong> {{ann.region}}
+										</p>
+
+										<a style="color: #000" href="{{ann.url}}">
+											<h5 style="font-weight: 400;">link do ogłoszenia</h5>
+										</a>
+									</div>
+
+
+								</button>
+
+								<div class="divider mt-4"></div>
+
+							</article>
+
+
+
+						</div>
+						{% empty %}
+    						<li>Brak ogłoszeń.</li>
+						{% endfor %}
+					</div>
+
+
+
+{% endblock content %}
+
+
+</body>
+</html>
